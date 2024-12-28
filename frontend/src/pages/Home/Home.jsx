@@ -1,99 +1,107 @@
-import React, { useState } from "react";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Home.css";
-import {NavLink} from "react-router-dom";
 
-const Home = ({ mainContent, services, about, events }) => {
-    if (!mainContent) return <div>Контент временно недоступен</div>;
-
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const { welcomeMessage, description, slider } = mainContent;
-
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slider.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slider.length) % slider.length);
-    };
-
-    const newSections = [
-        {
-            title: "О нас",
-            image: about?.team?.[0]?.photo || "./assets/images/2.jpg",
-            name: about?.history || "Информация о нас пока недоступна.",
-            path: "/about"
-        },
-        {
-            title: "Услуги",
-            image: services?.[0]?.image || "./assets/images/2.jpg",
-            name: services?.[0]?.name || "Услуги временно недоступны.",
-            path: "/services"
-        },
-        {
-            title: "Мероприятия",
-            image: "./assets/images/2.jpg", // Замените на подходящее изображение, если есть.
-            name: events?.[0]?.name || "Мероприятия пока недоступны.",
-            path: "/events"
-        }
-    ];
+const Home = ({ theme, navigation, mainContent, about, mission, services, reviews, contact }) => {
+    const { primaryColor, secondaryColor, backgroundColor, fontFamily } = theme || {};
+    const main = mainContent?.["/"] || {};
 
     return (
-        <div className="home-page">
-            {/* Приветственное сообщение */}
-            <section className="welcome">
-                <h1>{welcomeMessage || "Добро пожаловать!"}</h1>
-                <p>{description || ""}</p>
-            </section>
+        <div
+            className="homepage"
+            style={{
+                backgroundColor: backgroundColor || "#ffffff",
+                fontFamily: fontFamily || "'Arial', sans-serif",
+            }}
+        >
+            {/* Навигация */}
+            <nav className="navigation" style={{ backgroundColor: primaryColor }}>
+                <ul>
+                    {navigation.map((item, index) => (
+                        <li key={index}>
+                            <NavLink to={item.path}>{item.label}</NavLink>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+
+            {/* Главный контент */}
+            <header className="hero-section" style={{ backgroundColor: secondaryColor }}>
+                <h1>{main.welcomeMessage || "Добро пожаловать!"}</h1>
+                <p>{main.description || "Описание временно недоступно."}</p>
+            </header>
 
             {/* Слайдер */}
-            {slider && slider.length > 0 && (
-                <section className="slider-container">
-                    <button className="slider-button prev" onClick={prevSlide}>
-                        &#10094;
-                    </button>
-                    <div className="slider">
-                        <div
-                            className="slider-wrapper"
-                            style={{
-                                transform: `translateX(-${currentSlide * 100}%)`,
-                                display: "flex",
-                                transition: "transform 0.5s ease-in-out",
-                            }}
-                        >
-                            {slider.map((image, index) => (
-                                <img
-                                    key={index}
-                                    src={image}
-                                    alt={`Слайд ${index + 1}`}
-                                    className="slide"
-                                    style={{
-                                        width: "100%",
-                                        flexShrink: 0,
-                                    }}
-                                />
-                            ))}
-                        </div>
+            {main.slider && (
+                <div className="carousel">
+                    <div className="carousel-inner">
+                        {main.slider.map((image, idx) => (
+                            <img key={idx} src={image} alt={`Slide ${idx + 1}`} />
+                        ))}
                     </div>
-                    <button className="slider-button next" onClick={nextSlide}>
-                        &#10095;
-                    </button>
-                </section>
+                </div>
             )}
 
-            {/* Секции */}
-            <section className="info-sections">
-                {newSections.map((section, index) => (
-                    <div key={index} className="info-section">
-                        <img src={section.image} alt={section.title} />
-                        <h2>{section.title}</h2>
-                        <p>{section.name}</p>
-                        <NavLink to={section.path} className="info-button">
-                            Подробнее
-                        </NavLink>
-                    </div>
-                ))}
-
+            {/* О компании */}
+            <section className="about-section">
+                <h2>О компании</h2>
+                <p>{about.history}</p>
+                <img src={about.image} alt="О компании" />
             </section>
+
+            {/* Миссия */}
+            <section className="mission-section">
+                <h2>Наша миссия</h2>
+                <p>{mission.statement}</p>
+                <ul>
+                    {mission.values.map((value, idx) => (
+                        <li key={idx}>{value}</li>
+                    ))}
+                </ul>
+            </section>
+
+            {/* Услуги */}
+            <section className="services-section">
+                <h2>Услуги</h2>
+                <div className="services-list">
+                    {services.map((service, idx) => (
+                        <div key={idx} className="service-card">
+                            <img src={service.image} alt={service.name} />
+                            <h3>{service.name}</h3>
+                            <p>{service.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Отзывы */}
+            <section className="reviews-section">
+                <h2>Отзывы</h2>
+                <div className="reviews-list">
+                    {reviews.map((review, idx) => (
+                        <div key={idx} className="review-card">
+                            <h3>{review.name}</h3>
+                            <p>{review.content}</p>
+                            <span>Рейтинг: {review.rating}/5</span>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Контакты */}
+            <footer className="contact-section">
+                <h2>Контакты</h2>
+                <p>Адрес: {contact.address}</p>
+                <p>Телефон: {contact.phone}</p>
+                <p>Email: <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+                <p>
+                    Рабочие часы: Пн-Пт {contact.workingHours.weekdays}, Сб {contact.workingHours.saturday}, Вс{" "}
+                    {contact.workingHours.sunday}.
+                </p>
+                <a href={contact.mapUrl} target="_blank" rel="noopener noreferrer">
+                    Открыть карту
+                </a>
+            </footer>
         </div>
     );
 };

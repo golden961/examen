@@ -17,7 +17,15 @@ const App = () => {
             <Navbar navigation={config.navigation} />
             <div className="home-page">
                 <Routes>
-                    <Route path="/" element={<Home mainContent={config.mainContent["/"]} />} />
+                    <Route path="/" element={<Home mainContent={config.mainContent["/"]}
+                                                   navigation={config.navigation}
+                                                   about={config.about}
+                                                   mission={config.mission}
+                                                   services={config.services}
+                                                   theme={config.theme}
+                                                   reviews={config.reviews}
+                                                   contact={config.contact}
+                    />} />
                     <Route path="/services" element={<Services services={config.services} />}/>
                     <Route path="/about" element={<About aboutData={config.about} />} />
                     <Route path="/contact" element={<Contact contactData={config.contact} />} />

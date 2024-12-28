@@ -18,28 +18,28 @@
       "welcomeMessage": "Добро пожаловать в Атмосферу комфорта!",
       "description": "Мы создаем комфортные пространства для жизни и работы с минимальными затратами времени и усилий.",
       "slider": [
-        "./assets/images/1.jpg",
-        "./assets/images/3.jpg",
-        "./assets/images/4.jpg",
-        "./assets/images/3-2.jpg"
+        "./assets/images/nesyemnaya.jpg",
+        "./assets/images/stroitelstvo-kottedzhej.jpg",
+        "./assets/images/trend-bz104_pr428.png.800x400e.webp",
+        "./assets/images/v-statyu.jpg"
       ]
     }
   },
   "about": {
     "history": "Наша компания основана в 2010 году и за это время зарекомендовала себя как надежный партнер в строительстве. Мы реализовали множество успешных проектов, включая жилые комплексы, дома и коммерческие объекты.",
-    "image": "./assets/images/5dc4a347df91f3912450a3d7076620ef.webp",
+    "image": "./assets/images/monolitny-dom.jpg",
     "team": [
       {
         "name": "Алексей Смирнов",
         "position": "Генеральный директор",
         "bio": "Руководит компанией с момента её основания, гарантируя высокие стандарты работы.",
-        "photo": "./assets/images/9abddf1da8174133cb77700b2ef42593.jpeg"
+        "photo": "./assets/images/orig.png"
       },
       {
         "name": "Екатерина Зайцева",
         "position": "Креативный менеджер",
         "bio": "Координирует проекты, превращая идеи в реальность.",
-        "photo": "./assets/images/20211116_121640.jpg"
+        "photo": "./assets/images/monolitny-dom.jpg"
       }
     ]
   },

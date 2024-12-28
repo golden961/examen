@@ -1,18 +1,18 @@
 :root {
     /* Цвета */
-    --color-primary: #0d0d0d;
-    --color-secondary: #1c1c1c;
-    --color-background: #151515;
-    --color-text: #e5e5e5;
-    --color-muted-text: #8a8a8a;
-    --color-button: #00d1ff;
-    --color-button-hover: #00b3e6;
-    --color-header: #292929;
-    --color-footer: #1c1c1c;
-    --color-card-shadow: rgba(0, 255, 255, 0.2);
-    --color-link: #00ffcc;
-    --color-link-hover: #00cca3;
-    --color-error: #ff4c4c;
+    --color-primary: #0d0d0d; /* Основной фон (темный) */
+    --color-secondary: #1c1c1c; /* Дополнительный фон */
+    --color-background: #151515; /* Фон элементов */
+    --color-text: #e5e5e5; /* Основной текст */
+    --color-muted-text: #8a8a8a; /* Приглушенный текст */
+    --color-button: #00d1ff; /* Цвет кнопок */
+    --color-button-hover: #00b3e6; /* Цвет кнопок при наведении */
+    --color-header: #292929; /* Цвет заголовков */
+    --color-footer: #1c1c1c; /* Цвет футера */
+    --color-card-shadow: rgba(0, 255, 255, 0.2); /* Тень карточек */
+    --color-link: #00ffcc; /* Цвет ссылок */
+    --color-link-hover: #00cca3; /* Цвет ссылок при наведении */
+    --color-error: #ff4c4c; /* Цвет ошибок */
 
     /* Шрифты */
     --font-family: 'Poppins', sans-serif;
@@ -25,7 +25,6 @@
     --spacing-margin: 15px;
     --spacing-border-radius: 12px;
 }
-
 
 * {
     margin: 0;
