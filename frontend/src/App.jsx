@@ -7,6 +7,7 @@ import Services from "./pages/Services/Services.jsx";
 import About from "./pages/About/About.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
 import config from "./config.json";
+import CalculatorPage from "./pages/Calculate/Calculator.jsx";
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
                     <Route path="/services" element={<Services services={config.services} />}/>
                     <Route path="/about" element={<About aboutData={config.about} />} />
                     <Route path="/contact" element={<Contact contactData={config.contact} />} />
+                    <Route path="/calculate" element={<CalculatorPage />} />
                 </Routes>
             </div>
             <Footer footerData={config.footer} />

@@ -11,7 +11,8 @@
     { "label": "Услуги", "path": "/services" },
     { "label": "Миссия", "path": "/mission" },
     { "label": "Отзывы", "path": "/reviews" },
-    { "label": "Контакты", "path": "/contact" }
+    { "label": "Контакты", "path": "/contact" },
+    { "label": "Калькулятор", "path": "/calculate" }
   ],
   "mainContent": {
     "/": {

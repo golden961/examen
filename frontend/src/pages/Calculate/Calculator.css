@@ -1,0 +1,109 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+/* Контейнер калькулятора */
+.calculator-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Формы */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Инпуты */
+input[type="number"],
+input[type="email"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Блок с результатами */
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.result ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.result ul li {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Чекбоксы для дополнительных опций */
+div > input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+/* Контейнер для email */
+form input[type="email"] {
+    width: 80%;
+    margin-bottom: 15px;
+    align-self: center;
+}
