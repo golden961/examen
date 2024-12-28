@@ -1,0 +1,86 @@
+@import './../../../public/assets/styles/variable.css';
+
+/* Общие стили */
+.about-page {
+    padding: var(--spacing-padding);
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-margin);
+    color: var(--color-link-hover);
+}
+
+/* История клуба */
+.club-history {
+    margin-bottom: calc(var(--spacing-margin) * 4);
+    line-height: 1.6;
+    font-size: calc(var(--font-size-base) * 1.2);
+    color: var(--color-muted-text);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto calc(var(--spacing-margin) * 4);
+}
+
+/* Команда */
+.team {
+    margin-top: calc(var(--spacing-margin) * 4);
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-margin);
+    justify-content: center;
+}
+
+.team-member {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--spacing-border-radius);
+    box-shadow: 0 4px 10px var(--color-card-shadow);
+    overflow: hidden;
+    text-align: center;
+    max-width: 300px;
+    padding: var(--spacing-padding);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.team-member img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--spacing-border-radius);
+    margin-bottom: var(--spacing-margin);
+}
+
+.team-member h3 {
+    margin-bottom: var(--spacing-margin);
+    color: var(--color-link);
+}
+
+.team-member p {
+    margin-bottom: var(--spacing-margin);
+    color: var(--color-muted-text);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .club-history {
+        font-size: var(--font-size-base);
+        padding: 0 calc(var(--spacing-margin) * 2);
+    }
+
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}

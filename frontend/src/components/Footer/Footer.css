@@ -1,0 +1,167 @@
+@import './../../../public/assets/styles/variable.css';
+
+/* Основной стиль футера */
+.footer {
+    background-color: var(--color-footer);
+    color: var(--color-text);
+    padding: calc(var(--spacing-padding) * 2) var(--spacing-margin);
+    box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.1); /* Футуристическая тень */
+    border-top: 1px solid var(--color-secondary);
+    left: 0;
+    width:100%;
+    z-index: 10;
+}
+
+/* Контейнер футера */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: calc(var(--spacing-margin) * 2);
+}
+
+/* Секции футера */
+.footer-section {
+    flex: 1 1 280px;
+    margin: calc(var(--spacing-margin) / 2);
+    padding: var(--spacing-padding);
+    border-radius: var(--spacing-border-radius);
+    background: linear-gradient(145deg, var(--color-secondary), var(--color-background));
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.2), inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+    box-shadow: inset -2px -2px 10px rgba(255, 255, 255, 0.3), inset 2px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Заголовки секций */
+.footer-section h3 {
+    margin-bottom: calc(var(--spacing-margin) / 2);
+    color: var(--color-link);
+    font-size: var(--font-size-subheading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 3px rgba(0, 255, 255, 0.4);
+}
+
+/* Текст и ссылки */
+.footer-section p,
+.footer-section a {
+    color: var(--color-text);
+    margin-bottom: calc(var(--spacing-margin) / 2);
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+    color: var(--color-link-hover);
+    text-shadow: 0 0 5px var(--color-link-hover);
+}
+
+/* Иконки социальных сетей */
+.social-icons {
+    display: flex;
+    gap: calc(var(--spacing-margin) / 2);
+    justify-content: center;
+    margin-top: calc(var(--spacing-margin) * 2);
+}
+
+.social-icons a {
+    color: var(--color-link);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--color-link-hover);
+    transform: scale(1.2);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .footer {
+        padding: calc(var(--spacing-padding) * 1.5);
+        position: relative;
+            }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-margin);
+    }
+
+    .footer-section {
+        flex: 1 1 auto;
+        margin: calc(var(--spacing-margin) / 2) 0;
+    }
+
+    .footer-section h3 {
+        font-size: calc(var(--font-size-subheading) - 0.5rem);
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: calc(var(--font-size-base) - 0.2rem);
+    }
+
+    .social-icons {
+        margin-top: var(--spacing-margin);
+    }
+
+    .social-icons a {
+        font-size: 1.2rem;
+    }
+}
+
+/* Эффект света в футере */
+.footer::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.1), transparent 60%);
+    z-index: -1;
+    animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {/* Глобальные стили для фиксации футера */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: var(--font-family);
+        }
+
+        /* Контейнер всего содержимого страницы */
+        .main-container {
+            flex: 1 0 auto; /* Расширяется, чтобы занять всё доступное пространство */
+        }
+
+        .footer {
+            flex-shrink: 0; /* Футер остаётся на своём месте и не сжимается */
+        }
+
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}

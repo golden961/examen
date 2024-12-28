@@ -1,0 +1,78 @@
+:root {
+    /* Цвета */
+    --color-primary: #0d0d0d;
+    --color-secondary: #1c1c1c;
+    --color-background: #151515;
+    --color-text: #e5e5e5;
+    --color-muted-text: #8a8a8a;
+    --color-button: #00d1ff;
+    --color-button-hover: #00b3e6;
+    --color-header: #292929;
+    --color-footer: #1c1c1c;
+    --color-card-shadow: rgba(0, 255, 255, 0.2);
+    --color-link: #00ffcc;
+    --color-link-hover: #00cca3;
+    --color-error: #ff4c4c;
+
+    /* Шрифты */
+    --font-family: 'Poppins', sans-serif;
+    --font-size-base: 16px;
+    --font-size-heading: 2.5rem;
+    --font-size-subheading: 1.8rem;
+
+    /* Отступы */
+    --spacing-padding: 20px;
+    --spacing-margin: 15px;
+    --spacing-border-radius: 12px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* Заголовки */
+h1, h2, h3 {
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ссылки */
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    text-shadow: 0 0 5px var(--color-link-hover);
+}
+
+/* Кнопки */
+button {
+    background: linear-gradient(145deg, var(--color-button), var(--color-button-hover));
+    color: var(--color-background);
+    border: none;
+    border-radius: var(--spacing-border-radius);
+    padding: var(--spacing-padding);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: var(--color-button-hover);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.5);
+}
